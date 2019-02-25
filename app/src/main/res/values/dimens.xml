@@ -9,6 +9,10 @@
     <dimen name="textLarge">18sp</dimen>
     <dimen name="textLarger">22sp</dimen>
     <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_item_menu">15dp</dimen>
+    <dimen name="textLager">20sp</dimen>
+    <dimen name="avatar_size">120dp</dimen>
+    <dimen name="margin_header_navigation_main">5dp</dimen>
     <dimen name="margin_16dp">16dp</dimen>
     <dimen name="padding_10">10dp</dimen>
     <dimen name="margin_8dp">8dp</dimen>
