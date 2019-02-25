@@ -32,13 +32,15 @@
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />
-        <activity android:name=".View.Main.MainActivity">
+        <activity android:name=".View.Main.MainActivity" />
+        <activity android:name=".View.SplashScreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".View.Login.LoginActivity">
+        </activity>
     </application>
-
 </manifest>
