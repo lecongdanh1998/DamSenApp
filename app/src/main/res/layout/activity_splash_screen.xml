@@ -11,6 +11,6 @@
         android:id="@+id/imagesLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logobackground"
+        android:src="@drawable/sieutet_main"
         />
 </RelativeLayout>

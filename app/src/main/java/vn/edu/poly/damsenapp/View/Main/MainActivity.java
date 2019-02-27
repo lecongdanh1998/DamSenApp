@@ -1,12 +1,17 @@
 package vn.edu.poly.damsenapp.View.Main;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,13 +27,17 @@ import vn.edu.poly.damsenapp.R;
 import vn.edu.poly.damsenapp.View.Album.Album;
 import vn.edu.poly.damsenapp.View.HomePage.HomePage;
 
+import static android.support.constraint.ConstraintSet.VISIBLE;
+
 public class MainActivity extends BaseActivity implements PresenterReponsetoViewMain, View.OnClickListener, AdapterView.OnItemClickListener {
     private DrawerLayout drawer_layout;
     PresenterMain presenterMain;
     private ListView listview_menu;
     private TextView toolbar_title;
     private ImageView img_btn_account;
-
+    private View.OnClickListener clickNe;
+    LinearLayout accept;
+    ImageView img_album;
     @Override
     protected int initLayout() {
         return R.layout.activity_main;
@@ -44,8 +53,17 @@ public class MainActivity extends BaseActivity implements PresenterReponsetoView
 
     @Override
     protected void initData() {
+        clickNe = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new Album();
+                transactionFrangment(fragment, "Album");
+                accept.setVisibility(ImageView.GONE);
+                img_album.setRotation(0f);
+            }
+        };
         presenterMain = new PresenterMain(this, this);
-        presenterMain.initTabLayOut();
+        presenterMain.initTabLayOut(clickNe);
 
 
     }
@@ -82,8 +100,21 @@ public class MainActivity extends BaseActivity implements PresenterReponsetoView
                 transactionFrangment(fragment, "Trang Chủ");
                 break;
             case 1:
-                fragment = new Album();
-                transactionFrangment(fragment, "Album");
+                accept = view.findViewById(R.id.linearLayout_album);
+                img_album = view.findViewById(R.id.img_album);
+                if (accept.getVisibility() == View.GONE) {
+                    Animation animation = AnimationUtils.loadAnimation(this, R.anim.topbottom);
+                    accept.startAnimation(animation);
+                    accept.setVisibility(View.VISIBLE);
+                    img_album.setRotation(180f);
+                } else {
+                    Animation animation = AnimationUtils.loadAnimation(this, R.anim.bottomtop);
+                    accept.startAnimation(animation);
+                    accept.setVisibility(View.GONE);
+                    img_album.setRotation(0f);
+                }
+//                fragment = new Album();
+//                transactionFrangment(fragment, "Album");
                 break;
             default:
                 break;

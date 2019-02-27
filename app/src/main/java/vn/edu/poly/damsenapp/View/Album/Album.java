@@ -59,7 +59,7 @@ public class Album extends BaseFragment implements PresenterReponsetoViewAlbum, 
     GridView gridView;
     ViewPager viewPager;
     RelativeLayout relativeLayoutShowHide, relativeLayoutToobar;
-    ImageView btn_exit;
+    ImageView btn_exit,img_btn_account;
     PresenterAlbum presenterAlbum;
     private Uri imageCaptureUri;
     private int CAMERA_REQUEST = 1;
@@ -79,6 +79,7 @@ public class Album extends BaseFragment implements PresenterReponsetoViewAlbum, 
 
     @Override
     public void initView() {
+        img_btn_account = getActivity().findViewById(R.id.img_btn_account);
         relativeLayoutToobar = getActivity().findViewById(R.id.relativeLayoutToobar);
         gridView = view.findViewById(R.id.grid_view_image_text);
         relativeLayoutShowHide = view.findViewById(R.id.relativeLayoutShowHide);
@@ -106,6 +107,8 @@ public class Album extends BaseFragment implements PresenterReponsetoViewAlbum, 
                 relativeLayoutShowHide.startAnimation(animation);
                 relativeLayoutShowHide.setVisibility(View.GONE);
                 relativeLayoutToobar.setVisibility(View.VISIBLE);
+                img_btn_account.setEnabled(true);
+                img_btn_account.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -147,20 +150,11 @@ public class Album extends BaseFragment implements PresenterReponsetoViewAlbum, 
             relativeLayoutToobar.startAnimation(animationToobar);
             relativeLayoutToobar.setVisibility(View.GONE);
             relativeLayoutShowHide.setVisibility(View.VISIBLE);
+            img_btn_account.setEnabled(false);
+            img_btn_account.startAnimation(animationToobar);
+            img_btn_account.setVisibility(View.GONE);
             viewPager.setCurrentItem(position, false);
         }
-// else if (position == 0) {
-//            gridView.getItemAtPosition(position);
-//            Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.zoom_in);
-//            relativeLayoutShowHide.startAnimation(animation);
-//            Animation animationToobar = AnimationUtils.loadAnimation(getContext(), R.anim.alpha);
-//            relativeLayoutToobar.startAnimation(animationToobar);
-//            relativeLayoutToobar.setVisibility(View.GONE);
-//            relativeLayoutShowHide.setVisibility(View.VISIBLE);
-//            viewPager.setCurrentItem(position, false);
-//        }
-//
-
     }
 
 

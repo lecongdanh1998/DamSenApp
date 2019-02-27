@@ -5,9 +5,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
@@ -50,10 +53,12 @@ public class CustomViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View view = layoutInflater.inflate(R.layout.hot_deal_layout, container, false);
         HotDealObject mHotDealObject = hotDealList.get(position);
-        ImageView favoriteIcon = (ImageView)view.findViewById(R.id.hot_deal_food_image);
+        ImageView favoriteIcon = view.findViewById(R.id.hot_deal_food_image);
         Picasso.get()
                 .load(mHotDealObject.getImages())
                 .into(favoriteIcon);
+
+
         container.addView(view);
         return view;
     }

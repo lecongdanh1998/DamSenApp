@@ -2,6 +2,7 @@ package vn.edu.poly.damsenapp.Presenter.PresenterMain;
 
 import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 
 import vn.edu.poly.damsenapp.Adapter.MenuAdapter;
 import vn.edu.poly.damsenapp.Model.ModelMain.ModelMain;
@@ -26,8 +27,8 @@ public class PresenterMain  implements ModelReponsetoPresenterMain {
     }
 
 
-    public void initTabLayOut() {
-        modelMain.initTabLayOut();
+    public void initTabLayOut(View.OnClickListener clickNe) {
+        modelMain.initTabLayOut(clickNe);
     }
     @Override
     public void onTabLayOut(MenuAdapter menuAdapter) {

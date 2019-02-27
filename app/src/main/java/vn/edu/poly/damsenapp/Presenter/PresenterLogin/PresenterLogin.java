@@ -20,7 +20,13 @@ public class PresenterLogin implements ModelReponsetoPresenterLogin {
         modelLogin = new ModelLogin(this, context);
     }
 
-    public void initLogin() {
-        modelLogin.initLogin();
+
+    public void initLogin(int requestcode, String email, String password) {
+        modelLogin.initLogin(requestcode, email, password);
+    }
+
+    @Override
+    public void onDataIntent(int requestcode) {
+        callback.onDataIntent(requestcode);
     }
 }

@@ -19,12 +19,13 @@ public class MenuAdapter extends BaseAdapter {
     List<MenuModel> modelList;
     LayoutInflater layoutInflater;
     String notificationsCount;
-    String NOTIFICATIONS = "Notifications";
-
-    public MenuAdapter(Context context, List<MenuModel> modelList, String notificationsCount) {
+    String ALBUM = "ALBUM";
+    private View.OnClickListener clickNe;
+    public MenuAdapter(Context context, List<MenuModel> modelList, String notificationsCount, View.OnClickListener clickNe) {
         this.context = context;
         this.modelList = modelList;
         this.notificationsCount = notificationsCount;
+        this.clickNe = clickNe;
     }
 
     @Override
@@ -43,7 +44,7 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     public class ViewHolder{
-        TextView txt_title_menu, txt_badge_menu;
+        TextView txt_title_menu, txt_badge_menu,txt_album_sieurangro;
     }
 
     @Override
@@ -54,26 +55,34 @@ public class MenuAdapter extends BaseAdapter {
         Log.d("MENUADAPTER", menuModel.getTitle());
         if (convertView == null){
             viewHolder = new ViewHolder();
-            if (!menuModel.getTitle().equalsIgnoreCase(NOTIFICATIONS)){
+            if (!menuModel.getTitle().equalsIgnoreCase(ALBUM)){
                 layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = layoutInflater.inflate(R.layout.row_menu, null);
             } else {
                 layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = layoutInflater.inflate(R.layout.item_notification_menu, null);
-                viewHolder.txt_badge_menu = convertView.findViewById(R.id.txt_badge_menu);
+                convertView = layoutInflater.inflate(R.layout.item_album_menu, null);
+                viewHolder.txt_album_sieurangro = convertView.findViewById(R.id.txt_title1_menu);
             }
             viewHolder.txt_title_menu = convertView.findViewById(R.id.txt_title_menu);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        if (menuModel.getTitle().equalsIgnoreCase(NOTIFICATIONS)){
-            if (!notificationsCount.equalsIgnoreCase("0")){
-                viewHolder.txt_badge_menu.setText(notificationsCount);
-            } else {
-                viewHolder.txt_badge_menu.setVisibility(View.GONE);
-            }
+        if (menuModel.getTitle().equalsIgnoreCase(ALBUM)){
+            viewHolder.txt_album_sieurangro.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    view.setTag(menuModel);
+                    clickNe.onClick(view);
+                }
+            });
+//            if (!notificationsCount.equalsIgnoreCase("0")){
+//                viewHolder.txt_badge_menu.setText(notificationsCount);
+//            } else {
+//                viewHolder.txt_badge_menu.setVisibility(View.GONE);
+//            }
         }
+
         viewHolder.txt_title_menu.setText(menuModel.getTitle());
         return convertView;
     }

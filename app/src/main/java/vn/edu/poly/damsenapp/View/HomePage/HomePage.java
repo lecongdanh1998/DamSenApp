@@ -8,7 +8,9 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -37,7 +39,10 @@ public class HomePage extends BaseFragment implements PresenterReponsetoViewHome
     private View view;
     ViewPager viewPager;
     RelativeLayout relativeLayoutShowHide, relativeLayoutToobar;
-    ImageView btn_exit;
+    ImageView btn_exit, img_btn_account;
+    private DrawerLayout drawer_layout;
+    private ScaleGestureDetector mScaleGestureDetector;
+    private float mScaleFactor = 1.0f;
 
     @Override
     public View provideYourFragmentView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
@@ -46,6 +51,8 @@ public class HomePage extends BaseFragment implements PresenterReponsetoViewHome
 
     @Override
     public void initView() {
+        img_btn_account = getActivity().findViewById(R.id.img_btn_account);
+        drawer_layout = getActivity().findViewById(R.id.drawer_layout);
         gridView = view.findViewById(R.id.grid_view_image_text);
         relativeLayoutShowHide = view.findViewById(R.id.relativeLayoutShowHide);
         viewPager = view.findViewById(R.id.pager);
@@ -73,6 +80,9 @@ public class HomePage extends BaseFragment implements PresenterReponsetoViewHome
                 relativeLayoutShowHide.startAnimation(animation);
                 relativeLayoutToobar.setVisibility(View.VISIBLE);
                 relativeLayoutShowHide.setVisibility(View.GONE);
+                img_btn_account.setEnabled(true);
+                img_btn_account.setVisibility(View.VISIBLE);
+                drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
                 break;
         }
     }
@@ -92,13 +102,17 @@ public class HomePage extends BaseFragment implements PresenterReponsetoViewHome
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         gridView.getItemAtPosition(position);
         Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.zoom_in);
         relativeLayoutShowHide.startAnimation(animation);
+        relativeLayoutShowHide.setVisibility(View.VISIBLE);
+        img_btn_account.setEnabled(false);
         Animation animationToobar = AnimationUtils.loadAnimation(getContext(), R.anim.alpha);
         relativeLayoutToobar.startAnimation(animationToobar);
         relativeLayoutToobar.setVisibility(View.GONE);
-        relativeLayoutShowHide.setVisibility(View.VISIBLE);
+        img_btn_account.startAnimation(animationToobar);
+        img_btn_account.setVisibility(View.GONE);
         viewPager.setCurrentItem(position, false);
 
 

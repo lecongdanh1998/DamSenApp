@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="vn.edu.poly.damsenapp">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -18,11 +19,12 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+
     <application
-        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -32,6 +34,7 @@
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="ocr" />
+
         <activity android:name=".View.Main.MainActivity" />
         <activity android:name=".View.SplashScreen.SplashScreenActivity">
             <intent-filter>
@@ -40,7 +43,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Login.LoginActivity">
-        </activity>
+        <activity android:name=".View.Login.LoginActivity" />
+        <activity android:name=".View.Register.RegisterActivity" />
+        <activity android:name=".View.UpdateInfomation.UpdaterInfomationActivity"></activity>
     </application>
+
 </manifest>
