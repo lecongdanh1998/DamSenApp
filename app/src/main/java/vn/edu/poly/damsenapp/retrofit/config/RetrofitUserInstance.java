@@ -12,13 +12,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUserInstance {
     public static Retrofit retrofit = null;
-    public static String baseUrl = "http://192.168.1.110:3000/api/nks/auth/";
+    public static String HTTP = "192.168.1.110";
+    public static String baseUrl = "http://"+HTTP+":3000/api/nks/auth/";
 
     public static Retrofit getInstance() {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .readTimeout(10000, TimeUnit.MILLISECONDS)
-                .writeTimeout(10000, TimeUnit.MILLISECONDS)
-                .connectTimeout(10000, TimeUnit.MILLISECONDS)
+                .readTimeout(5000, TimeUnit.MILLISECONDS)
+                .writeTimeout(5000, TimeUnit.MILLISECONDS)
+                .connectTimeout(5000, TimeUnit.MILLISECONDS)
                 .retryOnConnectionFailure(true)
                 .build();
         Gson gson = new GsonBuilder().setLenient().create();
