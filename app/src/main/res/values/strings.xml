@@ -5,6 +5,7 @@
     <string name="btn_login">LOGIN</string>
     <string name="btn_link_to_register">Don"'"t have an account ?</string>
     <string name="btn_add_barcode">Add Barcode</string>
+    <string name="facebook_app_id">1920762314687823</string> <string name="fb_login_protocol_scheme">fb1920762314687823</string>
     <string name="txt_setting">Setting</string>
     <string name="txt_logout">Logout</string>
 </resources>
