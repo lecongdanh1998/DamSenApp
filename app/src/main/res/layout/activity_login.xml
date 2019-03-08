@@ -121,7 +121,6 @@
                                 android:text="Facebook"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="@dimen/textLarge" />
-
                         </RelativeLayout>
 
                         <com.facebook.login.widget.LoginButton
@@ -131,11 +130,30 @@
                             android:visibility="gone" />
                     </RelativeLayout>
 
-                    <com.google.android.gms.common.SignInButton
-                        android:id="@+id/sign_in_button"
+                    <RelativeLayout
+                        android:layout_marginTop="@dimen/margin_8dp"
+                        android:id="@+id/layout_login_google"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp" />
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@drawable/rounded_button_google">
+
+                        <ImageView
+                            android:id="@+id/img_login_google_custom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/margin_16dp"
+                            android:src="@drawable/search_24px" />
+
+                        <TextView
+                            android:id="@+id/txt_login_google_custom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="Google"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/textLarge" />
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <RelativeLayout

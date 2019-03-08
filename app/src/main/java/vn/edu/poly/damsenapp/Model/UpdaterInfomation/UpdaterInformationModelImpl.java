@@ -55,7 +55,7 @@ public class UpdaterInformationModelImpl implements UpdaterInformationModel {
                     .subscribeOn(Schedulers.newThread())
                     .subscribe(
                             data -> {
-                                Log.d(TAG, "updateUser data: " + data.getMessage());
+                                Log.d(TAG, " data: " + data.getMessage());
                                 mActivity.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {

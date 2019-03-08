@@ -70,11 +70,10 @@ public class LoginActivity extends BaseActivity implements PresenterReponsetoVie
     String email = "";
     String password = "";
     int codeCheck;
-    private SignInButton mSignInButton;
     private GoogleSignInClient mGoogleSignInClient;
-    private RelativeLayout mButtonLoginFCustom;
-    private ImageView mImageViewLoginFacebook;
-    private TextView mTextViewLoginFaceBook;
+    private RelativeLayout mButtonLoginFCustom, mButtonLoginGCustom;
+    private ImageView mImageViewLoginFacebook, mImageViewLoginGoogle;
+    private TextView mTextViewLoginFaceBook, mTextViewLoginGoogle;
     private LoginButton mLoginFacebook;
     private CallbackManager callbackManager;
     private LoginFacebookPresenter mLoginFacebookPresenter;
@@ -94,11 +93,12 @@ public class LoginActivity extends BaseActivity implements PresenterReponsetoVie
         edtPassword = findViewById(R.id.password);
         btnLogin = findViewById(R.id.btn_login);
         mLoginFacebook = findViewById(R.id.login_button_facebook);
-        mSignInButton = findViewById(R.id.sign_in_button);
-        mSignInButton.setSize(SignInButton.SIZE_STANDARD);
         mButtonLoginFCustom = findViewById(R.id.layout_login_facebook);
         mImageViewLoginFacebook = findViewById(R.id.img_login_facebook_custom);
         mTextViewLoginFaceBook = findViewById(R.id.txt_login_facebook_custom);
+        mButtonLoginGCustom = findViewById(R.id.layout_login_google);
+        mImageViewLoginGoogle = findViewById(R.id.img_login_google_custom);
+        mTextViewLoginGoogle = findViewById(R.id.txt_login_google_custom);
     }
 
     @Override
@@ -161,10 +161,12 @@ public class LoginActivity extends BaseActivity implements PresenterReponsetoVie
     protected void initOnClick() {
         btn_signup.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
-        mSignInButton.setOnClickListener(this);
         mButtonLoginFCustom.setOnClickListener(this);
         mImageViewLoginFacebook.setOnClickListener(this);
         mTextViewLoginFaceBook.setOnClickListener(this);
+        mButtonLoginGCustom.setOnClickListener(this);
+        mImageViewLoginGoogle.setOnClickListener(this);
+        mTextViewLoginGoogle.setOnClickListener(this);
     }
 
     @Override
@@ -181,7 +183,9 @@ public class LoginActivity extends BaseActivity implements PresenterReponsetoVie
             case R.id.txt_login_facebook_custom:
                 faceIn();
                 break;
-            case R.id.sign_in_button:
+            case R.id.layout_login_google:
+            case R.id.img_login_google_custom:
+            case R.id.txt_login_google_custom:
                 signIn();
                 break;
         }

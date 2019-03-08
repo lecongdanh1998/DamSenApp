@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitUserInstance {
     public static Retrofit retrofit = null;
-    public static String HTTP = "192.168.1.110";
+    public static String HTTP = "192.168.1.7";
     public static String baseUrl = "http://"+HTTP+":3000/api/nks/auth/";
 
     public static Retrofit getInstance() {
