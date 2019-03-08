@@ -3,6 +3,7 @@ package vn.edu.poly.damsenapp.Presenter.PresenterAlbum;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +36,16 @@ public class PresenterAlbum implements ModelReponsetoPresenterAlbum {
         modelAlbum.initData();
     }
 
-    public void initAddData(Bitmap bitmap) {
-        modelAlbum.initAddData(bitmap);
+    public void initAddData(Uri resultUri) {
+        modelAlbum.initAddData(resultUri);
     }
 
     public void initImageViewPager() {
         modelAlbum.initImageViewPager();
+    }
+
+    public void initAddDataEditCrop(Uri resultUri){
+        modelAlbum.initAddDataPosition(resultUri);
     }
 
     @Override
@@ -56,6 +61,11 @@ public class PresenterAlbum implements ModelReponsetoPresenterAlbum {
     @Override
     public void onImageViewPager(CustomViewPagerAdapterAlbum adpter, List<HotDealObjectAlbum> mTestData) {
         callback.onImageViewPager(adpter, mTestData);
+    }
+
+    @Override
+    public void onFileUri(Uri uri) {
+        callback.onFileUri(uri);
     }
 
 

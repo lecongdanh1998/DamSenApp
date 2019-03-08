@@ -28,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
     private void initEditor() {
         dataResultUserName = getSharedPreferences("data_ResultCodePassword", MODE_PRIVATE);
+
     }
     @LayoutRes
     protected abstract int initLayout();

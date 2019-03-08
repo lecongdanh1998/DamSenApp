@@ -21,5 +21,6 @@
     <!--quality analysis activity-->
     <dimen name="margin_top_item_16dp">16dp</dimen>
     <dimen name="margin_top_item_8dp">8dp</dimen>
+    <dimen name="cam_widget_margin_bottom">20dp</dimen>
     <dimen name="elevation_tool_bar">2dp</dimen>
 </resources>

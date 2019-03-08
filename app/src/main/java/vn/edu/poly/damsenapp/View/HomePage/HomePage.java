@@ -41,8 +41,6 @@ public class HomePage extends BaseFragment implements PresenterReponsetoViewHome
     RelativeLayout relativeLayoutShowHide, relativeLayoutToobar;
     ImageView btn_exit, img_btn_account;
     private DrawerLayout drawer_layout;
-    private ScaleGestureDetector mScaleGestureDetector;
-    private float mScaleFactor = 1.0f;
 
     @Override
     public View provideYourFragmentView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {

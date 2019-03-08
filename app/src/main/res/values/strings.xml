@@ -5,7 +5,18 @@
     <string name="btn_login">LOGIN</string>
     <string name="btn_link_to_register">Don"'"t have an account ?</string>
     <string name="btn_add_barcode">Add Barcode</string>
-    <string name="facebook_app_id">1920762314687823</string> <string name="fb_login_protocol_scheme">fb1920762314687823</string>
+    <string name="facebook_app_id">1920762314687823</string>
+    <string name="fb_login_protocol_scheme">fb1920762314687823</string>
     <string name="txt_setting">Setting</string>
     <string name="txt_logout">Logout</string>
+    <string name="crop_image_menu_rotate_left">Rotate counter clockwise</string>
+    <string name="crop_image_menu_rotate_right">Rotate</string>
+    <string name="crop_image_menu_crop">Crop</string>
+    <string name="crop_image_menu_flip">Flip</string>
+    <string name="crop_image_menu_flip_horizontally">Flip horizontally</string>
+    <string name="crop_image_menu_flip_vertically">Flip vertically</string>
+    <string name="crop_image_activity_title"></string>
+    <string name="pick_image_intent_chooser_title">Select source</string>
+
+    <string name="crop_image_activity_no_permissions">Cancelling, required permissions are not granted</string>
 </resources>

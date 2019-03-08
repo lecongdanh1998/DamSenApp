@@ -1,5 +1,7 @@
 package vn.edu.poly.damsenapp.Presenter.PresenterAlbum;
 
+import android.net.Uri;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,5 +18,6 @@ public interface PresenterReponsetoViewAlbum  {
     void onData2(CustomGridViewAlbumActivity adpter,ArrayList<ContructorLibraryAlbum> arrayList);
     void onData(CustomGridViewAlbumActivity adpter,ArrayList<ContructorLibraryAlbum> arrayList);
     void onImageViewPager(CustomViewPagerAdapterAlbum adpter, List<HotDealObjectAlbum> mTestData);
+    void onFileUri(Uri uri);
 
 }

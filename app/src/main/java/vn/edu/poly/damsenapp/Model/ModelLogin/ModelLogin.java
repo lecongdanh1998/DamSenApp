@@ -52,7 +52,8 @@ public class ModelLogin {
 
 
         if (new ValidateForm().validateTextEmpty(email) == false && new ValidateForm().validateTextEmpty(password) == false) {
-            SignIn(email,password);
+//            SignIn(email,password);
+            callback.onDataIntent(1);
         } else if (new ValidateForm().validateTextEmpty(email) == true && new ValidateForm().validateTextEmpty(password) == false) {
             callback.onDataIntent(2);
         } else if (new ValidateForm().validateTextEmpty(email) == false && new ValidateForm().validateTextEmpty(password) == true) {

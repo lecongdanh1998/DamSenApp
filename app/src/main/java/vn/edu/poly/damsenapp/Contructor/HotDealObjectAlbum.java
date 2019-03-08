@@ -1,25 +1,36 @@
 package vn.edu.poly.damsenapp.Contructor;
 
-import android.graphics.Bitmap;
+import android.net.Uri;
 
 import java.io.Serializable;
 
 public class HotDealObjectAlbum implements Serializable {
 
-    Bitmap images;
+    Uri images;
+    long id;
 
-    public HotDealObjectAlbum(Bitmap images) {
+    public HotDealObjectAlbum() {
+
+    }
+
+    public HotDealObjectAlbum(long id, Uri images) {
+        this.id = id;
         this.images = images;
     }
 
-    public HotDealObjectAlbum() {
+    public long getId() {
+        return id;
     }
 
-    public Bitmap getImages() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Uri getImage() {
         return images;
     }
 
-    public void setImages(Bitmap images) {
+    public void setImage(Uri images) {
         this.images = images;
     }
 }

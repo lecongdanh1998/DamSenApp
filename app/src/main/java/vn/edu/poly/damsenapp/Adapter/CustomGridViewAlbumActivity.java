@@ -1,6 +1,7 @@
 package vn.edu.poly.damsenapp.Adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,19 +59,18 @@ public class CustomGridViewAlbumActivity extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         ContructorLibraryAlbum library = arrayList.get(i);
-        if (i == arrayList.size() - 1) {
+        if(arrayList.size() == 1){
             viewHolder.android_gridview_image_add.setVisibility(View.VISIBLE);
             viewHolder.android_gridview_image_add.setImageResource(R.drawable.ic_add_circle_blue_48dp);
-        } else if (i < arrayList.size() - 1 && i > 0) {
-            viewHolder.android_gridview_image.setImageBitmap(library.getImage());
-//            Picasso.get()
-//                    .load(library.getImage())
-//                    .into(viewHolder.android_gridview_image);
-        } else if (i == 0) {
-            Picasso.get()
-                    .load(library.getImageLink())
-                    .into(viewHolder.android_gridview_image);
+        }else if(arrayList.size() > 1) {
+            if (i == arrayList.size() - 1) {
+                viewHolder.android_gridview_image_add.setVisibility(View.VISIBLE);
+                viewHolder.android_gridview_image_add.setImageResource(R.drawable.ic_add_circle_blue_48dp);
+            } else if (i < arrayList.size() - 1) {
+            viewHolder.android_gridview_image.setImageURI(Uri.parse(library.getImage()));
+            }
         }
+
 
         return convertView;
     }

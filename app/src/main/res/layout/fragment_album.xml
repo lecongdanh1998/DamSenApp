@@ -44,4 +44,5 @@
             android:src="@drawable/ic_close_white_24dp" />
 
     </RelativeLayout>
+
 </RelativeLayout>
